@@ -1,0 +1,72 @@
+#logging:
+#  config: file:logback.xml
+
+hooks:
+  file: hooks-0.0.1.jar
+  after:
+    parsing-parameters: com.paysyslabs.bootstrap.rest.hook.impl.AfterParsingParametersHookImpl
+    response: com.paysyslabs.bootstrap.rest.hook.impl.AfterResponseHookImpl
+
+pinblock-key: B319B9761F314089B319B9761F314089
+
+service:
+  client: 
+    unsafe: true
+  timeout:
+    connect: 15000
+    read: 30000
+  concurrency:
+    maxtotal: 200
+    maxperroute: 100
+  queue: 
+    workers: 1
+    request: abc-WS-H-IN
+    result: avc-WS-H-OUT
+    saf: abcL-HTTP-SAF
+
+queue:
+  config: 
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    heartbeat: 10
+    retry.interval: 10
+    prefetch.count: 1
+    auto.ack: false
+
+spring:
+  mandatoryFileEncoding: UTF-8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;database=mpay;
+    username: test
+    password: test
+    sqlScriptEncoding: UTF-8
+    tomcat.connection-properties: useUnicode=yes;characterEncoding=utf-8;
+    hikari:
+      connection-test-query: SELECT 1
+      minimum-idle: 8
+      maximum-pool-size: 24
+      pool-name: sql-pool
+      auto-commit: true
+      max-lifetime: 1800000
+      leak-detection-threshold: 60000
+  jpa:
+    show-sql: true
+    generate-ddl: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.SQLServer2012Dialect
+    hibernate: 
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        format_sql: true
+        #globally_quoted_identifiers: true
+        id.new_generator_mappings: false

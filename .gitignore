@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+.classpath
+.project
+.settings/
+target/
+=======
+**/.project 
+**/.settings/ 
+**/target/
+**/bin/
+**/.classpath
+**/logs/
+**/*-local.*
+**/application-*.*
+**/*.log
+>>>>>>> branch 'master' of https://gitlab.paysyslabs.com/bootstrap/rest-handler
