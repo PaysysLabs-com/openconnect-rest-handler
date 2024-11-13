@@ -9,6 +9,8 @@ OpenConnect is a modular transaction processing system designed for secure and v
    - Handles authentication if required and sends the response to the Queue Processor.
    - [Introduction to REST APIs](https://restfulapi.net/)  
    - [Unirest Documentation](http://kong.github.io/unirest-java/)
+   - [Learn more about Spring Boot for REST APIs](https://spring.io/guides/gs/rest-service/)
+   - [How to Deploy Spring Boot application](https://docs.spring.io/spring-boot/how-to/deployment/installing.html)
 
 ## Tech Stack & Tools
 
